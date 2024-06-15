@@ -15,10 +15,15 @@ class Historial extends Model
 
     protected $fillable = [
         'historialUno',
+        'fechaHistorialUno',
         'historialDos',
+        'fechaHistorialDos',
         'historialTres',
+        'fechaHistorialTres',
         'historialCuatro',
+        'fechaHistorialCuatro',
         'historialCinco',
+        'fechaHistorialCinco',
         'contador',
         'idUsuario'
     ];

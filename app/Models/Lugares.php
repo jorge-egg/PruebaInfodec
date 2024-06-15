@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ciudades extends Model
+class Lugares extends Model
 {
     use HasFactory;
 
-    protected $table = 'ciudades';
+    protected $table = 'lugares';
 
-    protected $primaryKey = 'idCiudad';
+    protected $primaryKey = 'idLugar';
 
     protected $fillable = [
+        'imagen',
         'nombre',
-        'idPais'
+        'descripcion',
+        'idCiudad'
     ];
-
-    public $timestamps = false;
 }
+

@@ -9,6 +9,10 @@ class Paises extends Model
 {
     use HasFactory;
 
+    protected $table = 'paises';
+
+    protected $primaryKey = 'idPais';
+
     protected $fillable = [
         'nombre',
         'moneda',

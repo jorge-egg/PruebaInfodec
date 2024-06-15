@@ -17,10 +17,15 @@ class Historiales extends Migration
         Schema::create('historiales', function (Blueprint $table){
             $table->bigIncrements('idHistorial');
             $table->string('historialUno')->nullable();
+            $table->date('fechaHistorialUno');
             $table->string('historialDos')->nullable();
+            $table->date('fechaHistorialDos');
             $table->string('historialTres')->nullable();
+            $table->date('fechaHistorialTres');
             $table->string('historialCuatro')->nullable();
+            $table->date('fechaHistorialCuatro');
             $table->string('historialCinco')->nullable();
+            $table->date('fechaHistorialCinco');
             $table->integer('contador')->default(0);
 
             $table->unsignedBigInteger("idUsuario");
