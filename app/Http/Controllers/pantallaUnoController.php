@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Paises;
 use App\Models\Ciudades;
 use App\Models\Historial;
@@ -39,31 +40,35 @@ class pantallaUnoController extends Controller
             Historial::create([
                 'historialUno' => $request->selectPais.'&'.$request->selectCiudad,
                 'contador' => 2,
+                'fechaHistorialUno' => Carbon::now(),
                 'idUsuario' => Auth::id(),
             ]);
         }else{
             $updateHistorial = Historial::findOrFail($historial->idHistorial);
             if($historial->historialUno == null || $historial->contador == 1){
-                $historial->historialUno = $request->selectPais.'&'.$request->selectCiudad;
-                $historial->contador = 2;
-                $historial->save();
+                $updateHistorial->historialUno = $request->selectPais.'&'.$request->selectCiudad;
+                $updateHistorial->fechaHistorialUno = Carbon::now();
+                $updateHistorial->contador = 2;
+                $updateHistorial->save();
             }else if($historial->historialDos == null || $historial->contador == 2){
-                $updateHistorial = Historial::findOrFail($historial->idHistorial);
-                //dd($updateHistorial);
                 $updateHistorial->historialDos = $request->selectPais.'&'.$request->selectCiudad;
                 $updateHistorial->contador = 3;
+                $updateHistorial->fechaHistorialDos = Carbon::now();
                 $updateHistorial->save();
             }else if($historial->historialTres == null || $historial->contador == 3){
                 $updateHistorial->historialTres = $request->selectPais.'&'.$request->selectCiudad;
                 $updateHistorial->contador = 4;
+                $updateHistorial->fechaHistorialTres = Carbon::now();
                 $updateHistorial->save();
             }else if($historial->historialCuatro == null || $historial->contador == 4){
                 $updateHistorial->historialCuatro = $request->selectPais.'&'.$request->selectCiudad;
                 $updateHistorial->contador = 5;
+                $updateHistorial->fechaHistorialCuatro = Carbon::now();
                 $updateHistorial->save();
             }else if($historial->historialCinco == null || $historial->contador == 5){
                 $updateHistorial->historialCinco = $request->selectPais.'&'.$request->selectCiudad;
                 $updateHistorial->contador = 1;
+                $updateHistorial->fechaHistorialCinco = Carbon::now();
                 $updateHistorial->save();
             }
         }

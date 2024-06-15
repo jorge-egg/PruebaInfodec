@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClimaController;
+use App\Http\Controllers\pantallaDosController;
 use App\Http\Controllers\pantallaUnoController;
 
 /*
@@ -34,3 +35,5 @@ Route::get('/obtenerCiudades/{idPais}', [pantallaUnoController::class, 'obtenerC
 Route::post('/pantallaUno/store', [pantallaUnoController::class, 'store'])->name('pantallaUno.store');
 
 
+//pantalla 2
+Route::post('/pantallaDos/store', [pantallaDosController::class, 'store'])->name('pantallaDos.store');

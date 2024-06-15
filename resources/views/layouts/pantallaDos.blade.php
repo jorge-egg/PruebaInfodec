@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="" method="post">
+<form action="{{ route('pantallaDos.store') }}" method="post">
     @csrf
     <div class="container-sm">
         <div class="input-group mb-3">

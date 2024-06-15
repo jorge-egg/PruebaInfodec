@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Historial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class pantallaDosController extends Controller
 {
@@ -34,7 +37,51 @@ class pantallaDosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $historial = Historial::where('idUsuario', Auth::id())->first();
+        $updateHistorial = Historial::findOrFail($historial->idHistorial);
+
+        if($updateHistorial->fechaHistorialUno > $updateHistorial->fechaHistorialDos && $updateHistorial->fechaHistorialUno > $updateHistorial->fechaHistorialTres && $updateHistorial->fechaHistorialUno > $updateHistorial->fechaHistorialCuatro && $updateHistorial->fechaHistorialUno > $updateHistorial->fechaHistorialCinco){
+            $variableCambio = 1;
+        }else if($updateHistorial->fechaHistorialDos > $updateHistorial->fechaHistorialUno && $updateHistorial->fechaHistorialDos > $updateHistorial->fechaHistorialTres && $updateHistorial->fechaHistorialDos > $updateHistorial->fechaHistorialCuatro && $updateHistorial->fechaHistorialDos > $updateHistorial->fechaHistorialCinco){
+            $variableCambio = 2;
+        }else if($updateHistorial->fechaHistorialTres > $updateHistorial->fechaHistorialUno && $updateHistorial->fechaHistorialTres > $updateHistorial->fechaHistorialDos && $updateHistorial->fechaHistorialTres > $updateHistorial->fechaHistorialCuatro && $updateHistorial->fechaHistorialTres > $updateHistorial->fechaHistorialCinco){
+            $variableCambio = 3;
+        }else if($updateHistorial->fechaHistorialCuatro > $updateHistorial->fechaHistorialUno && $updateHistorial->fechaHistorialCuatro > $updateHistorial->fechaHistorialDos && $updateHistorial->fechaHistorialCuatro > $updateHistorial->fechaHistorialTres && $updateHistorial->fechaHistorialCuatro > $updateHistorial->fechaHistorialCinco){
+            $variableCambio = 4;
+        }else if($updateHistorial->fechaHistorialCinco > $updateHistorial->fechaHistorialUno && $updateHistorial->fechaHistorialCinco > $updateHistorial->fechaHistorialDos && $updateHistorial->fechaHistorialCinco > $updateHistorial->fechaHistorialTres && $updateHistorial->fechaHistorialCinco > $updateHistorial->fechaHistorialCuatro){
+            $variableCambio = 5;
+        }
+
+        switch ($variableCambio) {
+            case 1:
+                $updateHistorial->historialUno = $updateHistorial->historialUno.'&'.$request->valorPesos;
+                $updateHistorial->fechaHistorialUno = Carbon::now();
+                $updateHistorial->save();
+                break;
+            case 2:
+                $updateHistorial->historialDos = $updateHistorial->historialDos.'&'.$request->valorPesos;
+                $updateHistorial->fechaHistorialDos = Carbon::now();
+                $updateHistorial->save();
+                break;
+            case 3:
+                $updateHistorial->historialTres = $updateHistorial->historialTres.'&'.$request->valorPesos;
+                $updateHistorial->fechaHistorialTres = Carbon::now();
+                $updateHistorial->save();
+                break;
+            case 4:
+                $updateHistorial->historialCuatro = $updateHistorial->historialCuatro.'&'.$request->valorPesos;
+                $updateHistorial->fechaHistorialCuatro = Carbon::now();
+                $updateHistorial->save();
+                break;
+            case 5:
+                $updateHistorial->historialCinco = $updateHistorial->historialCinco.'&'.$request->valorPesos;
+                $updateHistorial->fechaHistorialCinco = Carbon::now();
+                $updateHistorial->save();
+                break;
+            default:
+                echo 'error';
+                break;
+        }
     }
 
     /**
