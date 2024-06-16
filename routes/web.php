@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClimaController;
 use App\Http\Controllers\pantallaDosController;
+use App\Http\Controllers\pantallaTresController;
 use App\Http\Controllers\pantallaUnoController;
 
 /*
@@ -37,3 +38,7 @@ Route::post('/pantallaUno/store', [pantallaUnoController::class, 'store'])->name
 
 //pantalla 2
 Route::post('/pantallaDos/store', [pantallaDosController::class, 'store'])->name('pantallaDos.store');
+
+
+//pantalla 3
+Route::get('/pantallaTres/index', [pantallaTresController::class, 'index'])->name('pantallaTres.index');

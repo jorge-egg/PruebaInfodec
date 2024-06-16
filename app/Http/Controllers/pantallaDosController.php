@@ -6,9 +6,13 @@ use Carbon\Carbon;
 use App\Models\Historial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Traits\UniversalTrait;
 
 class pantallaDosController extends Controller
 {
+    use UniversalTrait;
+
+
     /**
      * Display a listing of the resource.
      *
@@ -40,17 +44,7 @@ class pantallaDosController extends Controller
         $historial = Historial::where('idUsuario', Auth::id())->first();
         $updateHistorial = Historial::findOrFail($historial->idHistorial);
 
-        if($updateHistorial->fechaHistorialUno > $updateHistorial->fechaHistorialDos && $updateHistorial->fechaHistorialUno > $updateHistorial->fechaHistorialTres && $updateHistorial->fechaHistorialUno > $updateHistorial->fechaHistorialCuatro && $updateHistorial->fechaHistorialUno > $updateHistorial->fechaHistorialCinco){
-            $variableCambio = 1;
-        }else if($updateHistorial->fechaHistorialDos > $updateHistorial->fechaHistorialUno && $updateHistorial->fechaHistorialDos > $updateHistorial->fechaHistorialTres && $updateHistorial->fechaHistorialDos > $updateHistorial->fechaHistorialCuatro && $updateHistorial->fechaHistorialDos > $updateHistorial->fechaHistorialCinco){
-            $variableCambio = 2;
-        }else if($updateHistorial->fechaHistorialTres > $updateHistorial->fechaHistorialUno && $updateHistorial->fechaHistorialTres > $updateHistorial->fechaHistorialDos && $updateHistorial->fechaHistorialTres > $updateHistorial->fechaHistorialCuatro && $updateHistorial->fechaHistorialTres > $updateHistorial->fechaHistorialCinco){
-            $variableCambio = 3;
-        }else if($updateHistorial->fechaHistorialCuatro > $updateHistorial->fechaHistorialUno && $updateHistorial->fechaHistorialCuatro > $updateHistorial->fechaHistorialDos && $updateHistorial->fechaHistorialCuatro > $updateHistorial->fechaHistorialTres && $updateHistorial->fechaHistorialCuatro > $updateHistorial->fechaHistorialCinco){
-            $variableCambio = 4;
-        }else if($updateHistorial->fechaHistorialCinco > $updateHistorial->fechaHistorialUno && $updateHistorial->fechaHistorialCinco > $updateHistorial->fechaHistorialDos && $updateHistorial->fechaHistorialCinco > $updateHistorial->fechaHistorialTres && $updateHistorial->fechaHistorialCinco > $updateHistorial->fechaHistorialCuatro){
-            $variableCambio = 5;
-        }
+        $variableCambio = $this->historialReciente($updateHistorial);
 
         switch ($variableCambio) {
             case 1:
@@ -82,6 +76,7 @@ class pantallaDosController extends Controller
                 echo 'error';
                 break;
         }
+        return redirect()->route('pantallaTres.index');
     }
 
     /**

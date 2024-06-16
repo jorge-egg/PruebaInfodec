@@ -32,6 +32,10 @@ return [
 
     'owm' => [
         'key' => env('OWM_API_KEY'),
+    ],
+
+    'layer' => [
+        'key' => env('LAYER_API_KEY'),
     ]
 
 ];

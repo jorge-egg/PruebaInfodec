@@ -16,22 +16,22 @@ class Paises extends Seeder
     {
         DB::table('paises')->insert([
             'nombre' => 'Inglaterra',
-            'moneda' => 'Libra esterlina',
+            'moneda' => 'GBP',
             'simboloMoneda' => '£',
         ]);
         DB::table('paises')->insert([
             'nombre' => 'Japón',
-            'moneda' => 'Yen',
+            'moneda' => 'JPY',
             'simboloMoneda' => '¥',
         ]);
         DB::table('paises')->insert([
             'nombre' => 'India',
-            'moneda' => 'Rupia',
+            'moneda' => 'INR',
             'simboloMoneda' => '₹',
         ]);
         DB::table('paises')->insert([
             'nombre' => 'Dinamarca',
-            'moneda' => 'Corona danesa',
+            'moneda' => 'DKK',
             'simboloMoneda' => 'kr',
         ]);
     }

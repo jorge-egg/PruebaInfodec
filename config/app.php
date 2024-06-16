@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -174,6 +174,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+
+        //Laravel Permission
+        Spatie\Permission\PermissionServiceProvider::class,
+
+        //Laraveles/spanish
+        Laraveles\Spanish\SpanishServiceProvider::class,
 
     ],
 

@@ -40,23 +40,7 @@
                     </form>
                 </div>
 
-                <div class="col-md-4">
-                    @isset($ok)
-                        <div class="col-md-12" style="background: #000">
-                            <h5>{{ $main }}</h5>
-                            <h1>{{ intval($temp) }}&deg;C</h1>
-                        </div>
-
-                        <div class="col-md-12" style="background: #000">
-                            <h3>{{ $name }}, {{ $country }}</h3>
-                        </div>
-
-                        <div class="col-md-12" style="background: #000">
-                            <h4>{{ $weather }}</h4>
-                        </div>
-                    @endisset
-
-                </div>
+                
             </div>
         </div>
 

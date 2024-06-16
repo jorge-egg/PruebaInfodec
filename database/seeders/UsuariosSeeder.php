@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Usuarios;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Usuarios as ModelsUsuarios;
 
-class Usuarios extends Seeder
+class UsuariosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,11 +17,11 @@ class Usuarios extends Seeder
      */
     public function run()
     {
-        DB::table('usuarios')->insert([
+        ModelsUsuarios::create([
             'nombre' => 'Jorge Eduardo',
             'apellido' => 'Garzon Galeano',
             'numeroDocumento' => '1193248110',
             'clave' => Hash::make('123456789'),
-        ]);
+        ])->assignRole('administrador');
     }
 }
