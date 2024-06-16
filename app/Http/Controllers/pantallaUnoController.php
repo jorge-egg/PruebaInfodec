@@ -18,8 +18,9 @@ class pantallaUnoController extends Controller
      */
     public function index()
     {
+        $lugares = Lugares::all();
         $paises = Paises::all();
-        return view('layouts.pantallaUno', compact('paises'));
+        return view('layouts.pantallaUno', compact('paises', 'lugares'));
     }
 
 

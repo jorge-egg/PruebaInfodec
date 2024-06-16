@@ -45,21 +45,21 @@ class Lugares extends Seeder
             'idCiudad' => 5
         ]);
         DB::table('lugares')->insert([
-            'imagen' => 'Dinamarca',
-            'nombre' => 'DKK',
-            'descripcion' => 'kr',
+            'imagen' => 'vipassana.jpg',
+            'nombre' => 'Pagoda Mundial Vipassana',
+            'descripcion' => 'Sala de meditación con cúpula con capacidad para alrededor de 8.000 meditadores Vipassana (la sala de meditación más grande del mundo).',
             'idCiudad' => 6
         ]);
         DB::table('lugares')->insert([
-            'imagen' => 'Dinamarca',
-            'nombre' => 'DKK',
-            'descripcion' => 'kr',
+            'imagen' => 'adoquinadas.jpg',
+            'nombre' => 'Calles adoquinadas',
+            'descripcion' => 'Una ciudad de calles adoquinadas, museos, palacios, puentes y canales, es una de las capitales europeas.',
             'idCiudad' => 7
         ]);
         DB::table('lugares')->insert([
-            'imagen' => 'Dinamarca',
-            'nombre' => 'DKK',
-            'descripcion' => 'kr',
+            'imagen' => 'elsinor.jpg',
+            'nombre' => 'Acuario de Øresund',
+            'descripcion' => 'Se especializa en exhibir la fascinante y colorida flora y fauna de las aguas locales de Øresund y Kattegat.',
             'idCiudad' => 8
         ]);
     }
