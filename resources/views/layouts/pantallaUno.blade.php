@@ -20,16 +20,11 @@
     @endcan
 
     <div class="lugares">
-        <section class="img-section">
-            <img src="{{ asset('img/lugares/petra-jordania.jpg') }}" alt="" class="img-lugares">
-            <h3 class="img-text">hggg</h3>
-        </section>
-        <img src="{{ asset('img/lugares/petra-jordania.jpg') }}" alt="" class="img-lugares">
-        <img src="{{ asset('img/lugares/petra-jordania.jpg') }}" alt="" class="img-lugares">
-        <img src="{{ asset('img/lugares/petra-jordania.jpg') }}" alt="" class="img-lugares">
-        <img src="{{ asset('img/lugares/petra-jordania.jpg') }}" alt="" class="img-lugares">
-        <img src="{{ asset('img/lugares/petra-jordania.jpg') }}" alt="" class="img-lugares">
-        <img src="{{ asset('img/lugares/petra-jordania.jpg') }}" alt="" class="img-lugares">
-        <img src="{{ asset('img/lugares/petra-jordania.jpg') }}" alt="" class="img-lugares">
+        @foreach ($lugares as $lugar)
+            <section class="img-section">
+                <img src="{{ asset('img/lugares/{{ $lugar->imagen }}') }}" alt="" class="img-lugares">
+                <h3 class="img-text">hggg</h3>
+            </section>
+        @endforeach
     </div>
 @endsection
