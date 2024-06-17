@@ -18,7 +18,7 @@ class Ciudades extends Seeder
             'nombre' => 'Londres',
             'idPais' => 1
         ]);DB::table('ciudades')->insert([
-            'nombre' => 'Mánchester',
+            'nombre' => 'Manchester',
             'idPais' => 1
         ]);DB::table('ciudades')->insert([
             'nombre' => 'Tokio',

@@ -1,17 +1,15 @@
-<div class="container-lg" style="border: solid 1px #000; display: grid; grid-template-columns: repeat(2, 1fr)">
+<div class="container-lg" style="display: grid; grid-template-columns: repeat(2, 1fr); margin: 20px auto 20px auto">
     <section class="section-select">
-        <select class="form-select" aria-label="Default select example" id="idPaisSelect" name="selectPais">
-            <option selected disabled>Selecciona un país</option>
+        <select class="form-select" aria-label="Default select example" id="idPaisSelect" name="selectPais" required>
+            <option value="" selected disabled>Selecciona un país</option>
             @foreach ($paises as $pais)
                 <option value="{{ $pais -> idPais }}">{{ $pais -> nombre }}</option>
             @endforeach
-
-
         </select>
     </section>
     <section class="section-select">
-        <select class="form-select" aria-label="Default select example" id="idCiudadSelect" name="selectCiudad">
-            <option selected disabled>Selecciona una ciudad</option>
+        <select class="form-select" aria-label="Default select example" id="idCiudadSelect" name="selectCiudad" required>
+            <option value="" selected disabled>Selecciona una ciudad</option>
         </select>
     </section>
 </div>
@@ -35,7 +33,7 @@
                 });
             } else {
                 $('#idCiudadSelect').empty();
-                $('#idCiudadSelect').append('<option value="">Seleccione una ciudad</option>');
+                $('#idCiudadSelect').append('<option value="" selected disabled>Seleccione una ciudad</option>');
             }
         });
     });

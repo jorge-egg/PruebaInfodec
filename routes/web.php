@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClimaController;
+use App\Http\Controllers\historialController;
 use App\Http\Controllers\pantallaDosController;
 use App\Http\Controllers\pantallaTresController;
 use App\Http\Controllers\pantallaUnoController;
@@ -24,7 +25,6 @@ use App\Http\Controllers\pantallaUnoController;
 
 Route::get('/', [pantallaUnoController::class, 'index'])->name('/');
 // Route::get('/', [ClimaController::class, 'index'])->name('/');
-Route::get('/search', [ClimaController::class, 'search'])->name('search');
 
 Auth::routes();
 
@@ -42,3 +42,9 @@ Route::post('/pantallaDos/store', [pantallaDosController::class, 'store'])->name
 
 //pantalla 3
 Route::get('/pantallaTres/index', [pantallaTresController::class, 'index'])->name('pantallaTres.index');
+
+
+//historial
+Route::post('/hisorial/redirigir', [historialController::class, 'index'])->name('redirigir.historial');
+
+

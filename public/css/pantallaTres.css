@@ -1,0 +1,14 @@
+.fondo-div-1
+{
+    position: relative;
+    background: #fff;
+    margin: 0 auto;
+    width: 50%;
+    top: 10%;
+    padding: 20px;
+}
+section{
+    border-top: dotted #199094 1px;
+    margin: 10px auto 10px auto;
+}
+

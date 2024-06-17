@@ -12,19 +12,13 @@
                 'paises' => $paises,
             ])
             @endcomponent
-
-            <button class="btn btn-secondary">Atras</button>
-            <button class="btn btn-primary">Siguiente</button>
+            <button class="btn btn-primary btn-siguiente">Siguiente</button>
 
         </form>
     @endcan
 
-    <div class="lugares">
-        @foreach ($lugares as $lugar)
-            <section class="img-section">
-                <img src="{{ asset('img/lugares/{{ $lugar->imagen }}') }}" alt="" class="img-lugares">
-                <h3 class="img-text">hggg</h3>
-            </section>
-        @endforeach
-    </div>
+    @component('components.lugaresImg', [
+        'lugares' => $lugares
+    ])
+    @endcomponent
 @endsection

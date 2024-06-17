@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UsuariosSeeder::class,
             Paises::class,
             Ciudades::class,
+            Lugares::class,
 
         ]);
     }

@@ -6,11 +6,13 @@ use Carbon\Carbon;
 use App\Models\Paises;
 use App\Models\Ciudades;
 use App\Models\Historial;
+use App\Traits\UniversalTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class pantallaUnoController extends Controller
 {
+    use UniversalTrait;
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +20,11 @@ class pantallaUnoController extends Controller
      */
     public function index()
     {
-        $lugares = Lugares::all();
+        $arrayHistorial = $this->mostrarHistorial();
+        $lugares = Ciudades::join('lugares', 'ciudades.idCiudad', '=' , 'lugares.idCiudad')->select('lugares.nombre', 'ciudades.nombre as ciudad', 'descripcion', 'imagen')->get();
         $paises = Paises::all();
-        return view('layouts.pantallaUno', compact('paises', 'lugares'));
+
+        return view('layouts.pantallaUno', compact('paises', 'lugares', 'arrayHistorial'));
     }
 
 
@@ -73,8 +77,10 @@ class pantallaUnoController extends Controller
                 $updateHistorial->save();
             }
         }
+        $lugares = Ciudades::join('lugares', 'ciudades.idCiudad', '=' , 'lugares.idCiudad')->select('lugares.nombre', 'ciudades.nombre as ciudad', 'descripcion', 'imagen')->get();
+        $arrayHistorial = $this->mostrarHistorial();
 
-        return view('layouts.pantallaDos');
+        return view('layouts.pantallaDos', compact('lugares', 'arrayHistorial'));
 
     }
 

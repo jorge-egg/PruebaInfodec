@@ -2,30 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ciudades;
-use App\Models\Historial;
 use App\Models\Paises;
+use App\Models\Ciudades;
+use Illuminate\Http\Request;
 use App\Traits\UniversalTrait;
 use App\Traits\Apis\Clima;
 use App\Traits\Apis\Moneda;
-use Illuminate\Support\Facades\Auth;
 
-class pantallaTresController extends Controller
+class historialController extends Controller
 {
-
     use UniversalTrait, Clima, Moneda;
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $historial = Historial::where('idUsuario', Auth::id())->first();
-        $updateHistorial = Historial::findOrFail($historial->idHistorial);
-
-        $variableCambio = $this->historialReciente($updateHistorial);
+        $variableCambio = $request->numeroHistorial;
         $datos = $this->extraerHistorialEsp($variableCambio);
 
         $datosHistorial = explode("&", $datos);
@@ -39,11 +33,12 @@ class pantallaTresController extends Controller
             'nombreMonedaDest' => $pais->moneda,
             'simboloMonedaDest' => $pais->simboloMoneda,
         ];
-        //dd($array['moneda']);
+
 
         $arrayHistorial = $this->mostrarHistorial();
-
+        //dd($arrayHistorial);
         return view('layouts.pantallaTres', compact('array', 'arrayHistorial'));
     }
+
 
 }

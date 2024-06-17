@@ -9,7 +9,6 @@ trait Clima
 {
     public function buscar($ciudad)
     {
-
         $pais = $ciudad;
         $key = config('services.owm.key');
 

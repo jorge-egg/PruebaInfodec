@@ -19,4 +19,9 @@ class Ciudades extends Model
     ];
 
     public $timestamps = false;
+
+    public function lugares()
+    {
+        return $this->hasMany(Lugares::class);
+    }
 }

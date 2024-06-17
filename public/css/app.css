@@ -7,4 +7,10 @@ main {
     background: linear-gradient(to bottom right, #0E4E50, #136F72, #199094, #27DBE1, #25D2D8, #fff, #fff, #fff, #fff);
     height: 90%;
     width: 100%;
+    text-align: center;
+}
+
+.btn-siguiente{
+    display: block;
+    margin: 0 auto 15px auto;
 }

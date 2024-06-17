@@ -19,5 +19,10 @@ class Lugares extends Model
         'descripcion',
         'idCiudad'
     ];
+
+    public function ciudades()
+    {
+        return $this->belongsTo(Ciudades::class);
+    }
 }
 

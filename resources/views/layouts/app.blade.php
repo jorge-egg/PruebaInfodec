@@ -39,13 +39,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+
+
+
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -61,11 +65,29 @@
                                 </li>
                             @endif
                         @else
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: #136F72">
+                              Historial
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                @foreach ($arrayHistorial as $historial)
+                                    @if($historial[0] != '' && $historial[1] == 3)
+                                    <form action="{{ route('redirigir.historial') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" value="{{ $historial[2] }}" name="numeroHistorial">
+                                        <li><button class="dropdown-item">{{ $historial[0] }}</button></li>
+                                    </form>
+                                    @elseif ($historial[0] == '')
+                                        <li><a class="dropdown-item">vacio</a></li>
+                                    @endif
+
+                                @endforeach
+                            </ul>
+                          </div>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->nombre }}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
