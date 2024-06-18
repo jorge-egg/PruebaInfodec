@@ -18,10 +18,6 @@ class Paises extends Migration
             $table->string('nombre', 50);
             $table->string('moneda', 50);
             $table->string('simboloMoneda', 10);
-
-            $table->unsignedBigInteger("idConsulta")->nullable();
-
-            $table->foreign("idConsulta")->references("idConsulta")->on("datosConsultas")->onDelete('cascade');
         });
     }
 

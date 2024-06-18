@@ -8,16 +8,16 @@
     <div class="fondo-div-1">
         <section style="display: grid; grid-template-columns: repeat(2, 1fr)">
             <div>
-                <h3>País: </h3>
+                <h3>{{ __('messages.pais') }}: </h3>
                 <p>{{ $array['pais'] }}</p>
             </div>
             <div>
-                <h3>Ciudad: </h3>
+                <h3>{{ __('messages.ciudad') }}: </h3>
                 <p>{{ $array['ciudad'] }}</p>
             </div>
         </section>
         <section>
-            <h3>Presupuesto: </h3>
+            <h3>{{ __('messages.presupuesto') }}: </h3>
             <p>${{ $array['valor'] }}</p>
         </section>
         <section style="display: grid; grid-template-columns: repeat(3, 1fr)">
@@ -43,11 +43,11 @@
                     <p>{{ $array['simboloMonedaDest'] . $array['moneda']['montoDestino'] }}</p>
                 </div>
                 <div>
-                    <h3>Tasa de cambio: </h3>
+                    <h3>{{ __('messages.tasa_de_cambio') }}: </h3>
                     <p>{{ $array['moneda']['tasaCambio'] }}</p>
                 </div>
             @endisset
         </section>
-        <a class="btn btn-primary" href='{{ route('/') }}'>Volver al inicio</a>
+        <a class="btn btn-primary" href='{{ route('/') }}'>{{ __('messages.volver_al_inicio') }}</a>
     </div>
 @endsection

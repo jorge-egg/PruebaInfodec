@@ -32,7 +32,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Angeles
+                    {{ __('messages.angeles') }}
                 </a>
                 <img src="{{ asset('img/icons/logo.png') }}" alt="Logo" id="logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -59,16 +59,18 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: #136F72">
-                              Historial
+                                {{ __('messages.historial') }}
                             </button>
+                            <a class="btn btn-outline-primary" href="{{ route('lang.switch', 'es') }}">Español</a>
+                            <a class="btn btn-outline-primary" href="{{ route('lang.switch', 'de') }}">Alemán</a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 @foreach ($arrayHistorial as $historial)
                                     @if($historial[0] != '' && $historial[1] == 3)
@@ -78,7 +80,7 @@
                                         <li><button class="dropdown-item">{{ $historial[0] }}</button></li>
                                     </form>
                                     @elseif ($historial[0] == '')
-                                        <li><a class="dropdown-item">vacio</a></li>
+                                        <li><a class="dropdown-item">{{ __('messages.vacio') }}</a></li>
                                     @endif
 
                                 @endforeach

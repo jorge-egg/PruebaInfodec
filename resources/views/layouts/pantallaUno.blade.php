@@ -12,13 +12,14 @@
                 'paises' => $paises,
             ])
             @endcomponent
-            <button class="btn btn-primary btn-siguiente">Siguiente</button>
+            <button class="btn btn-primary btn-siguiente">{{ __('messages.siguiente') }}</button>
 
         </form>
     @endcan
 
     @component('components.lugaresImg', [
-        'lugares' => $lugares
+        'lugares' => $lugares,
+        'idioma' => session('status'),
     ])
     @endcomponent
 @endsection

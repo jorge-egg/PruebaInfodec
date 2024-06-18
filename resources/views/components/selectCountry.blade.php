@@ -1,7 +1,7 @@
 <div class="container-lg" style="display: grid; grid-template-columns: repeat(2, 1fr); margin: 20px auto 20px auto">
     <section class="section-select">
         <select class="form-select" aria-label="Default select example" id="idPaisSelect" name="selectPais" required>
-            <option value="" selected disabled>Selecciona un país</option>
+            <option value="" selected disabled>{{ __('messages.selecciona_un_pais') }}</option>
             @foreach ($paises as $pais)
                 <option value="{{ $pais -> idPais }}">{{ $pais -> nombre }}</option>
             @endforeach
@@ -9,7 +9,7 @@
     </section>
     <section class="section-select">
         <select class="form-select" aria-label="Default select example" id="idCiudadSelect" name="selectCiudad" required>
-            <option value="" selected disabled>Selecciona una ciudad</option>
+            <option value="" selected disabled>{{ __('messages.selecciona_una_ciudad') }}</option>
         </select>
     </section>
 </div>

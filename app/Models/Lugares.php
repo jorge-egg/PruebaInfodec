@@ -16,7 +16,8 @@ class Lugares extends Model
     protected $fillable = [
         'imagen',
         'nombre',
-        'descripcion',
+        'descripcion_es',
+        'descripcion_de',
         'idCiudad'
     ];
 

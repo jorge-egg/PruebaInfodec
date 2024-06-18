@@ -20,9 +20,6 @@ class Usuarios extends Migration
             $table->string('numeroDocumento', 12);
             $table->string('clave');
 
-
-
-
         });
     }
 

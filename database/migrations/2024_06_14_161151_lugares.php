@@ -17,7 +17,8 @@ class Lugares extends Migration
             $table->bigIncrements('idLugar');
             $table->string('imagen');
             $table->string('nombre', 50);
-            $table->text('descripcion');
+            $table->text('descripcion_es');
+            $table->text('descripcion_de');
 
             $table->unsignedBigInteger("idCiudad");
 

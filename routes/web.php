@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClimaController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\historialController;
 use App\Http\Controllers\pantallaDosController;
-use App\Http\Controllers\pantallaTresController;
 use App\Http\Controllers\pantallaUnoController;
+use App\Http\Controllers\pantallaTresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +47,9 @@ Route::get('/pantallaTres/index', [pantallaTresController::class, 'index'])->nam
 
 //historial
 Route::post('/hisorial/redirigir', [historialController::class, 'index'])->name('redirigir.historial');
+
+
+//idioma
+Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('lang.switch');
 
 

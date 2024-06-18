@@ -21,7 +21,7 @@ class pantallaUnoController extends Controller
     public function index()
     {
         $arrayHistorial = $this->mostrarHistorial();
-        $lugares = Ciudades::join('lugares', 'ciudades.idCiudad', '=' , 'lugares.idCiudad')->select('lugares.nombre', 'ciudades.nombre as ciudad', 'descripcion', 'imagen')->get();
+        $lugares = Ciudades::join('lugares', 'ciudades.idCiudad', '=' , 'lugares.idCiudad')->select('lugares.nombre', 'ciudades.nombre as ciudad', 'descripcion_es', 'descripcion_de', 'imagen')->get();
         $paises = Paises::all();
 
         return view('layouts.pantallaUno', compact('paises', 'lugares', 'arrayHistorial'));
@@ -77,7 +77,7 @@ class pantallaUnoController extends Controller
                 $updateHistorial->save();
             }
         }
-        $lugares = Ciudades::join('lugares', 'ciudades.idCiudad', '=' , 'lugares.idCiudad')->select('lugares.nombre', 'ciudades.nombre as ciudad', 'descripcion', 'imagen')->get();
+        $lugares = Ciudades::join('lugares', 'ciudades.idCiudad', '=' , 'lugares.idCiudad')->select('lugares.nombre', 'ciudades.nombre as ciudad', 'descripcion_es', 'descripcion_de', 'imagen')->get();
         $arrayHistorial = $this->mostrarHistorial();
 
         return view('layouts.pantallaDos', compact('lugares', 'arrayHistorial'));
