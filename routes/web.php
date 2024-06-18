@@ -38,6 +38,7 @@ Route::post('/pantallaUno/store', [pantallaUnoController::class, 'store'])->name
 
 
 //pantalla 2
+Route::get('/pantallaDos/index', [pantallaDosController::class, 'index'])->name('pantallaDos.index');
 Route::post('/pantallaDos/store', [pantallaDosController::class, 'store'])->name('pantallaDos.store');
 
 

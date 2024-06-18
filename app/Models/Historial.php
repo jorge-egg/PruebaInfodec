@@ -29,4 +29,9 @@ class Historial extends Model
     ];
 
     public $timestamps = false;
+
+    public function usuarios()
+    {
+        return $this->belongsTo(Usuarios::class);
+    }
 }

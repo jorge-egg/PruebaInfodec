@@ -11,6 +11,7 @@ class LanguageController extends Controller
     {
         Session::put('locale', $lang);
         $idioma = $lang;
+        //dd($idioma);
         return redirect()->back()->with('status', $idioma);
     }
 }

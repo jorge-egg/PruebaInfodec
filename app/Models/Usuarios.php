@@ -40,4 +40,9 @@ class Usuarios extends Authenticatable
     }
 
     public $timestamps = false;
+
+    public function historial()
+    {
+        return $this->hasMany(Historial::class);
+    }
 }

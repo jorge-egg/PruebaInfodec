@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
 <form action="{{ route('pantallaDos.store') }}" method="post">
     @csrf
     <div class="container-sm" style="margin: 20px auto 20px auto">

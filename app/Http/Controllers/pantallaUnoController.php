@@ -77,10 +77,9 @@ class pantallaUnoController extends Controller
                 $updateHistorial->save();
             }
         }
-        $lugares = Ciudades::join('lugares', 'ciudades.idCiudad', '=' , 'lugares.idCiudad')->select('lugares.nombre', 'ciudades.nombre as ciudad', 'descripcion_es', 'descripcion_de', 'imagen')->get();
-        $arrayHistorial = $this->mostrarHistorial();
-
-        return view('layouts.pantallaDos', compact('lugares', 'arrayHistorial'));
+        
+        return redirect()->route('pantallaDos.index');
+        //return view('layouts.pantallaDos', compact('lugares', 'arrayHistorial'));
 
     }
 

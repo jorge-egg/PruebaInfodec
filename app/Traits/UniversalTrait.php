@@ -17,40 +17,48 @@ trait UniversalTrait
     //Obtiene los datos del historial y los manda en array
     public function mostrarHistorial()
     {
-        try {
-            $historial = Historial::where('idUsuario', Auth::id())->first();
-            return [
-                [
+        $historial = Historial::where('idUsuario', Auth::id())->first();
 
-                    $this->extraerDatosHistorial($historial->historialUno),
-                    count(explode("&", $historial->historialUno)),
-                    1
-                ],
-                [
-                    $this->extraerDatosHistorial($historial->historialDos),
-                    count(explode("&", $historial->historialDos)),
-                    2
-                ],
-                [
-                    $this->extraerDatosHistorial($historial->historialTres),
-                    count(explode("&", $historial->historialTres)),
-                    3
-                ],
-                [
-                    $this->extraerDatosHistorial($historial->historialCuatro),
-                    count(explode("&", $historial->historialCuatro)),
-                    4
-                ],
-                [
-                    $this->extraerDatosHistorial($historial->historialCinco),
-                    count(explode("&", $historial->historialCinco)),
-                    5
-                ],
+if ($historial) {
+    // Si se encontró un historial para el usuario
+    return [
+        [
+            $this->extraerDatosHistorial($historial->historialUno),
+            count(explode("&", $historial->historialUno)),
+            1
+        ],
+        [
+            $this->extraerDatosHistorial($historial->historialDos),
+            count(explode("&", $historial->historialDos)),
+            2
+        ],
+        [
+            $this->extraerDatosHistorial($historial->historialTres),
+            count(explode("&", $historial->historialTres)),
+            3
+        ],
+        [
+            $this->extraerDatosHistorial($historial->historialCuatro),
+            count(explode("&", $historial->historialCuatro)),
+            4
+        ],
+        [
+            $this->extraerDatosHistorial($historial->historialCinco),
+            count(explode("&", $historial->historialCinco)),
+            5
+        ],
+    ];
+} else {
+    // Si no se encontró ningún historial para el usuario
+    return [
+        ['Vacio', 0, 0],
+        ['Vacio', 0, 0],
+        ['Vacio', 0, 0],
+        ['Vacio', 0, 0],
+        ['Vacio', 0, 0],
+    ];
+}
 
-            ];
-        } catch (Exception $e) {
-            return [['Vacio', 0, 0], ['Vacio', 0, 0], ['Vacio', 0, 0], ['Vacio', 0, 0], ['Vacio', 0, 0]];
-        }
     }
 
 

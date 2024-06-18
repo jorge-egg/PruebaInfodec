@@ -66,9 +66,11 @@
                             @endif --}}
                         @else
                         <div class="dropdown">
+                            @can('consultar')
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background: #136F72">
                                 {{ __('messages.historial') }}
                             </button>
+                            @endcan
                             <a class="btn btn-outline-primary" href="{{ route('lang.switch', 'es') }}">Español</a>
                             <a class="btn btn-outline-primary" href="{{ route('lang.switch', 'de') }}">Alemán</a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

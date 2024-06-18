@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Ciudades;
 use App\Models\Historial;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Traits\UniversalTrait;
+use Illuminate\Support\Facades\Auth;
 
 class pantallaDosController extends Controller
 {
@@ -20,7 +21,9 @@ class pantallaDosController extends Controller
      */
     public function index()
     {
-        //
+        $lugares = Ciudades::join('lugares', 'ciudades.idCiudad', '=' , 'lugares.idCiudad')->select('lugares.nombre', 'ciudades.nombre as ciudad', 'descripcion_es', 'descripcion_de', 'imagen')->get();
+        $arrayHistorial = $this->mostrarHistorial();
+        return view('layouts.pantallaDos', compact('lugares', 'arrayHistorial'));
     }
 
     /**
