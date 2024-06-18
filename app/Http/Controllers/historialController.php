@@ -22,7 +22,7 @@ class historialController extends Controller
         $variableCambio = $request->numeroHistorial;
         $datos = $this->extraerHistorialEsp($variableCambio);
 
-        $datosHistorial = explode("&", $datos);
+        $datosHistorial = explode("&", $datos); //idPais&idCiudad&presupuesto
         $pais = Paises::where('idPais', $datosHistorial[0])->first();
         $array = [
             'pais' => $pais->nombre,

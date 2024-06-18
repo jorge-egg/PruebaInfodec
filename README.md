@@ -14,7 +14,7 @@ Una ves configurado esto, configuramos nuestra base de datos, OJO MUY IMPORTANTE
 
 **Pasos para Crear bd**  
 
-*-1 Vamos a nuestro Localhost y en las bases de datos creamos una nueva ingresamos el nombre pruebaInfodec, una vez creada buscamos donde dice Importar y seleccionamos el archivo pruebaInfodec.sql. Si se desea iportar la base de datos mediante los scripts, ejecute en consola el comando php artisan migrate:refresh --seed
+*-1 Vamos a nuestro Localhost y en las bases de datos creamos una nueva ingresamos el nombre pruebaInfodec por medio del script create database pruebaInfodec, una vez creada buscamos donde dice Importar y seleccionamos el archivo pruebaInfodec.sql. Si se desea iportar la base de datos mediante los scripts, ejecute en consola el comando php artisan migrate:refresh --seed
 
 **Ejecutar nuestro Aplicativo**  
 

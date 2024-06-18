@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class LanguageController extends Controller
 {
-    public function switchLang($lang)
+    public function switchLang($lang) //es -> español - de -> alemán
     {
         Session::put('locale', $lang);
         $idioma = $lang;
