@@ -23,7 +23,13 @@ class pantallaTresController extends Controller
     public function index()
     {
         $historial = Historial::where('idUsuario', Auth::id())->first();
-        $updateHistorial = Historial::findOrFail($historial->idHistorial);
+        if ($historial) {
+            // Si se encontró, intenta encontrar el historial por idHistorial
+            $updateHistorial = Historial::findOrFail($historial->idHistorial);
+        } else {
+            // Manejo del caso cuando no se encuentra un historial para el usuario
+            return response()->json(['error' => 'No se encontró un historial para el usuario.'], 404);
+        }
 
         $variableCambio = $this->historialReciente($updateHistorial);
         $datos = $this->extraerHistorialEsp($variableCambio);

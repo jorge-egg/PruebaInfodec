@@ -82,7 +82,13 @@ if ($historial) {
     public function extraerHistorialEsp($numero)
     {
         $historial = Historial::where('idUsuario', Auth::id())->first();
-        $updateHistorial = Historial::findOrFail($historial->idHistorial);
+        if ($historial) { // Verifica si $historial no es null
+            $updateHistorial = Historial::findOrFail($historial->idHistorial);
+
+        } else {
+            // Manejo del caso cuando no se encuentra un historial para el usuario
+            throw new \Exception('No se encontró un historial para el usuario.');
+        }
 
         switch ($numero) {
             case 1:
